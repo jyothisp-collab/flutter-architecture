@@ -13,19 +13,15 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dismissible(
-      key: Key(task.id),
-      onDismissed: (_) => onToggle(),
-      child: CheckboxListTile(
-        value: task.isCompleted,
-        title: Text(
-          task.title,
-          style: task.isCompleted
-              ? const TextStyle(decoration: TextDecoration.lineThrough)
-              : null,
-        ),
-        onChanged: (_) => onToggle(),
+    return CheckboxListTile(
+      value: task.isCompleted,
+      title: Text(
+        task.title,
+        style: task.isCompleted
+            ? const TextStyle(decoration: TextDecoration.lineThrough)
+            : null,
       ),
+      onChanged: (_) => onToggle(),
     );
   }
 }
